@@ -1,4 +1,5 @@
 import flet as ft
+from datetime import datetime
 
 
 def main(page: ft.Page):
@@ -13,8 +14,11 @@ def main(page: ft.Page):
         name = name_input.value.strip()
 
         if name:
+            now = datetime.now()
+            current_time = now.strftime("%Y:%m:%d - %H:%M:%S")
+
             text_hello.color = None
-            text_hello.value = f'Hello {name}'
+            text_hello.value = f'{current_time} - hello, {name}!'
             name_input.value = None
         else:
             text_hello.value = 'Введите имя!'
